@@ -7,6 +7,20 @@
       "startDate": "2023-07-05",
       "endDate": "2023-07-25",
       "id": 1
+    },
+    {
+      "title": "Split trip",
+      "description": "one day Split Trip",
+      "status": "open",
+      "id": 2
+    },
+    {
+      "title": "Dubrownik",
+      "description": "Dubrownik visiting",
+      "status": "open",
+      "startDate": "2023-06-10",
+      "endDate": "2023-06-15",
+      "id": 3
     }
   ],
   "operations": []
