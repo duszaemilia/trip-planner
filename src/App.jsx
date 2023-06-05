@@ -78,6 +78,17 @@ function App() {
                 <button type="submit">Save trip</button>
             </form>
 
+            <section>
+                {trips.map((trip) => (
+<div key={trip.id}>
+    <span>{trip.title}</span> - <span>{trip.description}</span>
+    <button>Add note</button>
+    <button>Finish</button>
+    <button>Delete</button>
+</div>
+                ))}
+            </section>
+
         </>
     )
 }
