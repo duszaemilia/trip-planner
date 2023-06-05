@@ -2,6 +2,7 @@ import './App.css'
 import {useEffect, useState} from "react";
 import {getAllTrips} from "./helpers/api.jsx";
 import {sendTripData} from "./helpers/api.jsx";
+import {deleteTripAPI} from "./helpers/api.jsx";
 
 function App() {
 
@@ -31,6 +32,15 @@ function App() {
         setEndDate("");
         setTrips([...trips,result])
     }
+
+
+
+    async function handleDeleteTrip(event) {
+        const id = +event.target.dataset.id
+        await deleteTripAPI(id);
+        setTrips(trips.filter((trip) => trip.id !== id));
+    }
+
 
     return (
         <>
@@ -84,7 +94,7 @@ function App() {
     <span>{trip.title}</span> - <span>{trip.description}</span>
     <button>Add note</button>
     <button>Finish</button>
-    <button>Delete</button>
+    <button onClick={handleDeleteTrip} data-id={trip.id}>Delete</button>
 </div>
                 ))}
             </section>

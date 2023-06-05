@@ -17,3 +17,8 @@ export  async function sendTripData(data) {
     )
     return response.json()
 }
+
+export     async function deleteTripAPI(id){
+    const response = await fetch (`http://localhost:3000/trips/${id}`, {method:'DELETE'})
+    return response.json();
+}

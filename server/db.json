@@ -1,14 +1,6 @@
 {
   "trips": [
     {
-      "title": "Croatia",
-      "description": "2 weeks in Dalmacja",
-      "status": "open",
-      "startDate": "2023-07-05",
-      "endDate": "2023-07-25",
-      "id": 1
-    },
-    {
       "title": "Split trip",
       "description": "one day Split Trip",
       "status": "open",
@@ -21,14 +13,6 @@
       "startDate": "2023-06-10",
       "endDate": "2023-06-15",
       "id": 3
-    },
-    {
-      "title": "Korcula",
-      "description": "Korccula visiting",
-      "status": "open",
-      "startDate": "2023-06-15",
-      "endDate": "2023-06-15",
-      "id": 4
     }
   ],
   "operations": []
