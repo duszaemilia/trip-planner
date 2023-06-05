@@ -1,0 +1,13 @@
+{
+  "trips": [
+    {
+      "title": "Croatia",
+      "description": "2 weeks in Dalmacja",
+      "status": "open",
+      "startDate": "2023-07-05",
+      "endDate": "2023-07-25",
+      "id": 1
+    }
+  ],
+  "operations": []
+}
