@@ -1,12 +1,6 @@
 {
   "trips": [
     {
-      "title": "Split trip",
-      "description": "one day Split Trip",
-      "status": "open",
-      "id": 2
-    },
-    {
       "title": "Dubrownik",
       "description": "Dubrownik visiting",
       "status": "open",
@@ -23,41 +17,60 @@
       "id": 4
     },
     {
-      "title": "eeeeeee",
-      "description": "eeeeeeeee",
-      "status": "open",
-      "startDate": "2023-06-14",
-      "endDate": "",
-      "id": 5
-    },
-    {
       "title": "Rijeka",
       "description": "vacation",
       "status": "open",
       "startDate": "2023-06-07",
       "endDate": "2023-06-09",
       "id": 6
+    },
+    {
+      "title": "Brac Island",
+      "description": "let's go to the island!",
+      "status": "open",
+      "startDate": "2023-06-20",
+      "endDate": "2023-06-21",
+      "id": 7
+    },
+    {
+      "title": "",
+      "description": "vdvdvdsv  jfnf slfj jjlf",
+      "status": "open",
+      "startDate": "",
+      "endDate": "",
+      "id": 8
     }
   ],
   "notes": [
     {
-      "note": "ttttttt",
-      "tripId": {
-        "tripId": 5
-      },
-      "id": 1
+      "note": "fffff",
+      "tripId": 4,
+      "id": 4
     },
     {
-      "note": "ttttttt",
-      "tripId": {
-        "tripId": 5
-      },
-      "id": 2
+      "note": "the best trip ever",
+      "tripId": 3,
+      "id": 5
     },
     {
-      "note": "ttttttt",
-      "tripId": 5,
-      "id": 3
+      "note": "the best trip ever",
+      "tripId": 3,
+      "id": 6
+    },
+    {
+      "note": "twifjisb  e y of of y ",
+      "tripId": 4,
+      "id": 7
+    },
+    {
+      "note": "twifjisb  e y of of y gggg",
+      "tripId": 4,
+      "id": 8
+    },
+    {
+      "note": "twifjisb  e y of of y gggg",
+      "tripId": 4,
+      "id": 9
     }
   ]
 }

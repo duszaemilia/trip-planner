@@ -1,5 +1,8 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import {sendDataAPI} from "../helpers/api.jsx";
+import Button from "@mui/material/Button";
+import Stack from '@mui/material/Stack';
+import TextField from "@mui/material/TextField";
 
 function AddNote({tripId}) {
     const [note, setNote] = useState("");
@@ -10,6 +13,7 @@ function AddNote({tripId}) {
                 note: note,
                 tripId
             }, "notes");
+            setNote("");
 
         }
 
@@ -17,12 +21,17 @@ function AddNote({tripId}) {
 
     return (
         <>
-            <input type="text"
-                   value={note}
-                   onChange={event => setNote(event.target.value)}
-                   placeholder="Additional note"
+            <Stack spacing={7} direction="row">
+            <TextField
+                label="Additional note"
+                variant="outlined"
+                type="text"
+                value={note}
+                onChange={event => setNote(event.target.value)}
+                placeholder="Additional note"
             />
-            <button onClick={handleAddNote}>Confirm</button>
+            <Button onClick={handleAddNote} variant="contained">Confirm</Button>
+            </Stack>
         </>
     );
 }
