@@ -29,6 +29,14 @@
       "startDate": "2023-06-14",
       "endDate": "",
       "id": 5
+    },
+    {
+      "title": "Rijeka",
+      "description": "vacation",
+      "status": "open",
+      "startDate": "2023-06-07",
+      "endDate": "2023-06-09",
+      "id": 6
     }
   ],
   "notes": [
