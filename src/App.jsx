@@ -1,9 +1,15 @@
 import './App.css'
 import {useEffect, useState} from "react";
-import {getAllTrips} from "./helpers/api.jsx";
-import {sendDataAPI} from "./helpers/api.jsx";
-import {deleteTripAPI} from "./helpers/api.jsx";
-import AddNote from "./components/AddNote.jsx";
+import {deleteTripAPI, getAllTrips, sendDataAPI} from "./helpers/api.jsx";
+import * as PropTypes from "prop-types";
+import {TripDetail} from "./components/TripDetail.jsx";
+
+TripDetail.propTypes = {
+    trip: PropTypes.any,
+    noteId: PropTypes.any,
+    onClick: PropTypes.func,
+    onClick1: PropTypes.func
+};
 
 function App() {
 
@@ -91,15 +97,8 @@ function App() {
 
             <section>
                 {trips.map((trip) => (
-                    <div key={trip.id}>
-                        <span>{trip.title}</span> - <span>{trip.description}</span>
-                        {noteId === trip.id ? (<AddNote tripId={trip.id}/>) : (
-                            <button onClick={() => setNoteId(trip.id)}>
-                                    Add note
-                            </button>)}
-                        <button>Finish</button>
-                        <button onClick={handleDeleteTrip} data-id={trip.id}>Delete</button>
-                    </div>
+                    <TripDetail key={trip.id} trip={trip} noteId={noteId} onClick={() => setNoteId(trip.id)}
+                                onClick1={handleDeleteTrip}/>
                 ))}
             </section>
 
