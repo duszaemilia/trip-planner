@@ -4,9 +4,9 @@ export async function getAllTrips() {
 }
 
 
-export  async function sendTripData(data) {
+export  async function sendDataAPI(data,endpoint) {
     const response = await fetch(
-        'http://localhost:3000/trips',
+        `http://localhost:3000/${endpoint}`,
         {
             headers:{
                 "Content-Type": "application/json"

@@ -1,8 +1,9 @@
 import './App.css'
 import {useEffect, useState} from "react";
 import {getAllTrips} from "./helpers/api.jsx";
-import {sendTripData} from "./helpers/api.jsx";
+import {sendDataAPI} from "./helpers/api.jsx";
 import {deleteTripAPI} from "./helpers/api.jsx";
+import AddNote from "./components/AddNote.jsx";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     const [description, setDescription] = useState("");
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
+    const [noteId, setNoteId] = useState(null);
 
     useEffect(() => {
         getAllTrips()
@@ -23,16 +25,15 @@ function App() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        const result = await sendTripData({
-            title, description, status:"open", startDate, endDate
-        });
+        const result = await sendDataAPI({
+            title, description, status: "open", startDate, endDate
+        },"trips");
         setTitle("");
         setDescription("");
         setStartDate("");
         setEndDate("");
-        setTrips([...trips,result])
+        setTrips([...trips, result])
     }
-
 
 
     async function handleDeleteTrip(event) {
@@ -90,12 +91,15 @@ function App() {
 
             <section>
                 {trips.map((trip) => (
-<div key={trip.id}>
-    <span>{trip.title}</span> - <span>{trip.description}</span>
-    <button>Add note</button>
-    <button>Finish</button>
-    <button onClick={handleDeleteTrip} data-id={trip.id}>Delete</button>
-</div>
+                    <div key={trip.id}>
+                        <span>{trip.title}</span> - <span>{trip.description}</span>
+                        {noteId === trip.id ? (<AddNote tripId={trip.id}/>) : (
+                            <button onClick={() => setNoteId(trip.id)}>
+                                    Add note
+                            </button>)}
+                        <button>Finish</button>
+                        <button onClick={handleDeleteTrip} data-id={trip.id}>Delete</button>
+                    </div>
                 ))}
             </section>
 

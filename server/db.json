@@ -13,7 +13,43 @@
       "startDate": "2023-06-10",
       "endDate": "2023-06-15",
       "id": 3
+    },
+    {
+      "title": "wwww",
+      "description": "wwwwwww",
+      "status": "open",
+      "startDate": "2023-06-16",
+      "endDate": "2023-06-16",
+      "id": 4
+    },
+    {
+      "title": "eeeeeee",
+      "description": "eeeeeeeee",
+      "status": "open",
+      "startDate": "2023-06-14",
+      "endDate": "",
+      "id": 5
     }
   ],
-  "operations": []
+  "notes": [
+    {
+      "note": "ttttttt",
+      "tripId": {
+        "tripId": 5
+      },
+      "id": 1
+    },
+    {
+      "note": "ttttttt",
+      "tripId": {
+        "tripId": 5
+      },
+      "id": 2
+    },
+    {
+      "note": "ttttttt",
+      "tripId": 5,
+      "id": 3
+    }
+  ]
 }
