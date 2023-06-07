@@ -9,32 +9,31 @@ import React from "react";
 import Grid from '@mui/material/Unstable_Grid2';
 
 
-
 export function TripDetail(props) {
     return <Container maxWidth="md">
         <Grid xs={12}>
             <List
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+                sx={{width: '100%', maxWidth: '100%', bgcolor: 'background.paper'}}
                 component="nav"
                 aria-labelledby="nested-list-subheader"
 
             >
-                <ListItemButton onClick={()=>{}}>
+                <ListItemButton onClick={() => {
+                }}>
                     <ListItemIcon>
-                        <InboxIcon />
+                        <InboxIcon/>
                     </ListItemIcon>
                     <ListItemText primary={props.trip.title} secondary={props.trip.description}/>
-                    {open ? <ExpandLess /> : <ExpandMore />}
+                    {open ? <ExpandLess/> : <ExpandMore/>}
                 </ListItemButton>
 
             </List>
-
-        {props.noteId === props.trip.id ? (<AddNote tripId={props.trip.id}/>) : (
             <Stack spacing={4} gap={4} direction="row">
-            <Button onClick={props.onClick} variant="outlined">Add note</Button>
+                {props.noteId === props.trip.id ? (<AddNote tripId={props.trip.id}/>) : (
+                    <Button onClick={props.onClick} variant="outlined">Add note</Button>
+                )}
+                <Button onClick={props.onClick1} data-id={props.trip.id} variant="outlined">Delete</Button>
             </Stack>
-           )}
-        <Button onClick={props.onClick1} data-id={props.trip.id} variant="outlined">Delete</Button>
         </Grid>
     </Container>;
 }
