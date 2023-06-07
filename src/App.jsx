@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {deleteTripAPI, getAllTrips, sendDataAPI} from "./helpers/api.jsx";
 import * as PropTypes from "prop-types";
-import {TripDetail} from "./components/TripDetail.jsx";
+// import {TripDetail} from "./components/TripDetail.jsx";
+import TripDetails from "./components/TripDetails.jsx";
+
 import {Container, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -16,7 +18,7 @@ import {DatePicker} from '@mui/x-date-pickers/DatePicker';
 import {ExpandLess, ExpandMore} from "@mui/icons-material";
 
 
-TripDetail.propTypes = {
+TripDetails.propTypes = {
     trip: PropTypes.any,
     noteId: PropTypes.any,
     onClick: PropTypes.func,
@@ -117,7 +119,7 @@ function App() {
 
                 {trips.map((trip) => (
 
-                        <TripDetail key={trip.id} trip={trip} noteId={noteId} onClick={() => setNoteId(trip.id)}
+                        <TripDetails key={trip.id} trip={trip} noteId={noteId} onClick={() => setNoteId(trip.id)}
                                     onClick1={handleDeleteTrip}/>
 
                 ))}

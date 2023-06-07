@@ -1,76 +1,45 @@
 {
   "trips": [
     {
-      "title": "Dubrownik",
-      "description": "Dubrownik visiting",
-      "status": "open",
-      "startDate": "2023-06-10",
-      "endDate": "2023-06-15",
-      "id": 3
-    },
-    {
-      "title": "wwww",
-      "description": "wwwwwww",
-      "status": "open",
-      "startDate": "2023-06-16",
-      "endDate": "2023-06-16",
-      "id": 4
-    },
-    {
-      "title": "Rijeka",
-      "description": "vacation",
-      "status": "open",
-      "startDate": "2023-06-07",
-      "endDate": "2023-06-09",
-      "id": 6
-    },
-    {
-      "title": "Brac Island",
-      "description": "let's go to the island!",
-      "status": "open",
-      "startDate": "2023-06-20",
-      "endDate": "2023-06-21",
-      "id": 7
-    },
-    {
       "title": "",
       "description": "vdvdvdsv  jfnf slfj jjlf",
       "status": "open",
       "startDate": "",
       "endDate": "",
       "id": 8
+    },
+    {
+      "title": "Dubrownik ",
+      "description": "one day visit",
+      "status": "open",
+      "startDate": "2023-06-08",
+      "endDate": "2023-06-08",
+      "id": 9
+    },
+    {
+      "title": "Korcula Island",
+      "description": "Let's go to the island!",
+      "status": "open",
+      "startDate": "",
+      "endDate": "2023-06-15",
+      "id": 10
     }
   ],
   "notes": [
     {
-      "note": "fffff",
-      "tripId": 4,
-      "id": 4
+      "note": "let go to the beach",
+      "tripId": 10,
+      "id": 1
     },
     {
-      "note": "the best trip ever",
-      "tripId": 3,
-      "id": 5
+      "note": "life cooking",
+      "tripId": 10,
+      "id": 2
     },
     {
-      "note": "the best trip ever",
-      "tripId": 3,
-      "id": 6
-    },
-    {
-      "note": "twifjisb  e y of of y ",
-      "tripId": 4,
-      "id": 7
-    },
-    {
-      "note": "twifjisb  e y of of y gggg",
-      "tripId": 4,
-      "id": 8
-    },
-    {
-      "note": "twifjisb  e y of of y gggg",
-      "tripId": 4,
-      "id": 9
+      "note": "castle visiting",
+      "tripId": 9,
+      "id": 3
     }
   ]
 }

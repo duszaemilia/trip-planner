@@ -33,6 +33,8 @@ export function TripDetail(props) {
                     <Button onClick={props.onClick} variant="outlined">Add note</Button>
                 )}
                 <Button onClick={props.onClick1} data-id={props.trip.id} variant="outlined">Delete</Button>
+                <Button onClick={props.onClick1} data-id={props.trip.id} variant="outlined">See trip details</Button>
+
             </Stack>
         </Grid>
     </Container>;
