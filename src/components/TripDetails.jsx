@@ -49,7 +49,7 @@ export default function TripDetails(props) {
                                         <Button onClick={props.onClick} variant="outlined">Add note</Button>
                                     )}
 
-                                    <Link to={`/trip-card/${props.tripId}`}>
+                                    <Link to={`/trip-card/${props.trip.id}/notes`}>
                                         <Button variant="outlined">See all notes</Button>
                                     </Link>
                                     <Button onClick={props.onClick1} data-id={props.trip.id}

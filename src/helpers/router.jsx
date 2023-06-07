@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
     },
 
     {
-        path: "/trip-card/:tripId",
+        path: "/trip-card/:tripId/notes",
         element: <TripCard/>,
     },
             ]);

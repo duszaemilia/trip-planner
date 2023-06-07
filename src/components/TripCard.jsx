@@ -1,21 +1,34 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import  { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-function TripCard(props) {
-    const [trip, setTripID] = useState({});
-    const {tripId} = useParams();
+export default function AllNotes() {
+    const [notes, setNotes] = useState([]);
+    const { tripId } = useParams();
 
-    useEffect(()=>{
-        getTripNote(tripId).then((trip) => setTripID(trip));
-    },[])
-    async function getTripNote(tripId) {
-        const response = await fetch(`http://localhost:3000/notes/${tripId}`);
-        return await response.json()
+    async function getNote() {
+        const response = await fetch(`http://localhost:3000/notes?tripId=${tripId}`);
+        return await response.json();
     }
 
+    useEffect(() => {
+        const getNotes = async () => {
+            const data = await getNote();
+            if (data) {
+                setNotes(data);
+            }
+        };
+
+        getNotes();
+    }, [tripId]);
+
     return (
-        <div> Trip details {tripId}</div>
+        <div>
+            <h1>Notes for Trip {tripId}</h1>
+            <ul>
+                {notes.map((note) => (
+                    <li key={note.id}>{note.note}</li>
+                ))}
+            </ul>
+        </div>
     );
 }
-
-export default TripCard;
