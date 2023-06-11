@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {deleteTripAPI, getAllTrips, sendDataAPI} from "./helpers/api.jsx";
-import * as PropTypes from "prop-types";
+// import * as PropTypes from "prop-types";
+import PropTypes from "prop-types";
+
 // import {TripDetail} from "./components/TripDetail.jsx";
 import TripDetails from "./components/TripDetails.jsx";
+import AllNotes from "./components/AllNotes.jsx";
+
 
 import {Container, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import TextField from '@mui/material/TextField';
@@ -16,6 +20,7 @@ import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
 import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
 import {DatePicker} from '@mui/x-date-pickers/DatePicker';
 import {ExpandLess, ExpandMore} from "@mui/icons-material";
+import Typography from "@mui/material/Typography";
 
 
 TripDetails.propTypes = {
@@ -33,6 +38,9 @@ function App() {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [noteId, setNoteId] = useState(null);
+    const [titleError, setTitleError] = useState(false);
+    const [descriptionError, setDescriptionError] = useState(false);
+
 
     useEffect(() => {
         getAllTrips()
@@ -45,16 +53,39 @@ function App() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        const result = await sendDataAPI({
-            title, description, status: "open", startDate, endDate
-        }, "trips");
-        setTitle("");
-        setDescription("");
-        setStartDate("");
-        setEndDate("");
-        setTrips([...trips, result])
+
+        if (title.trim() === "") {
+            setTitleError(true);
+        } else if (description.trim() === "") {
+            setDescriptionError(true);
+        } else {
+            setTitleError(false);
+            setDescriptionError(false);
+
+            const result = await sendDataAPI({
+                title, description, startDate, endDate
+            }, "trips");
+            setTitle("");
+            setDescription("");
+            setStartDate("");
+            setEndDate("");
+            setTrips([...trips, result])
+        }
     }
 
+    function handleTitleChange(event) {
+        setTitle(event.target.value);
+        if (titleError && event.target.value.trim() !== "") {
+            setTitleError(false);
+        }
+    }
+
+    function handleDescriptionChange(event) {
+        setDescription(event.target.value);
+        if (descriptionError && event.target.value.trim() !== "") {
+            setDescriptionError(false);
+        }
+    }
 
     async function handleDeleteTrip(event) {
         const id = +event.target.dataset.id
@@ -77,9 +108,14 @@ function App() {
                         type="text"
                         id="title"
                         name="title"
-                        onChange={(event) => setTitle(event.target.value)}
+                        onChange={handleTitleChange}
+                        error={titleError}
                     />
-
+                    {titleError && (
+                        <Typography variant="caption" color="error">
+                            Please enter a title.
+                        </Typography>
+                    )}
 
                     <TextField
                         label="Trip description"
@@ -87,11 +123,20 @@ function App() {
                         value={description}
                         id="desc"
                         name="desc"
-                        onChange={(event) => setDescription(event.target.value)}/>
+                        onChange={handleDescriptionChange}
+                        error={descriptionError}
+                    />
+
+                    {descriptionError && (
+                        <Typography variant="caption" color="error">
+                            Please enter a description.
+                        </Typography>
+                    )}
 
                     <div>
 
                         <label htmlFor="startDate">Start Date</label>
+
                         <input
                             value={startDate}
                             type="date"
@@ -115,16 +160,21 @@ function App() {
             </form>
 
 
-            <Grid  spacing={2} gap={2} style={{marginTop: '20px'}}>
+            <Grid spacing={2} gap={2} style={{marginTop: '20px'}}>
 
                 {trips.map((trip) => (
 
-                        <TripDetails key={trip.id} trip={trip} noteId={noteId} onClick={() => setNoteId(trip.id)}
-                                    onClick1={handleDeleteTrip}/>
+                    <TripDetails
+                        key={trip.id}
+                        trip={trip}
+                        noteId={noteId}
+                        setNoteId={setNoteId}
+                        onClick={() => setNoteId(trip.id)}
+                        onClick1={handleDeleteTrip}/>
 
                 ))}
             </Grid>
-
+            <AllNotes trips={trips}/>
         </Container>
     )
 }

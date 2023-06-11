@@ -15,7 +15,7 @@ import * as PropTypes from "prop-types";
 
 export default function TripDetails(props) {
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const handleClick = () => {
         setOpen(!open);
@@ -45,7 +45,10 @@ export default function TripDetails(props) {
                             <ListItemIcon>
 
                                 <Stack spacing={4} gap={4} direction="row">
-                                    {props.noteId === props.trip.id ? (<AddNote tripId={props.trip.id}/>) : (
+                                    {props.noteId === props.trip.id ? (
+                                        <AddNote
+                                            setNoteId={props.setNoteId}
+                                            tripId={props.trip.id}/>) : (
                                         <Button onClick={props.onClick} variant="outlined">Add note</Button>
                                     )}
 

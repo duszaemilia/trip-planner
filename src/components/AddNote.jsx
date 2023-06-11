@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Stack from '@mui/material/Stack';
 import TextField from "@mui/material/TextField";
 
-function AddNote({tripId}) {
+function AddNote({tripId,setNoteId}) {
     const [note, setNote] = useState("");
 
     async function handleAddNote() {
@@ -14,7 +14,7 @@ function AddNote({tripId}) {
                 tripId
             }, "notes");
             setNote("");
-
+            setNoteId(null);
         }
 
     }
