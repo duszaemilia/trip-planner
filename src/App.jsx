@@ -89,8 +89,12 @@ function App() {
 
     async function handleDeleteTrip(event) {
         const id = +event.target.dataset.id
-        await deleteTripAPI(id);
-        setTrips(trips.filter((trip) => trip.id !== id));
+        const confirmed = window.confirm("Czy na pewno chcesz usunąć ten plan podróży?");
+
+        if (confirmed) {
+            await deleteTripAPI(id);
+            setTrips(trips.filter((trip) => trip.id !== id));
+        }
     }
 
 
