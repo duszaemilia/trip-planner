@@ -69,7 +69,8 @@ function App() {
             setDescription("");
             setStartDate("");
             setEndDate("");
-            setTrips([...trips, result])
+            setTrips([...trips, result]);
+            alert("Plan podróży został zapisany!");
         }
     }
 
