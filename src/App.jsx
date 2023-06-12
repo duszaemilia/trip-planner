@@ -70,7 +70,7 @@ function App() {
             setStartDate("");
             setEndDate("");
             setTrips([...trips, result]);
-            alert("Plan podróży został zapisany!");
+            alert("Plan trip has been written!");
         }
     }
 
@@ -90,7 +90,7 @@ function App() {
 
     async function handleDeleteTrip(event) {
         const id = +event.target.dataset.id
-        const confirmed = window.confirm("Czy na pewno chcesz usunąć ten plan podróży?");
+        const confirmed = window.confirm("Are you sure you want to delete this plan trip?");
 
         if (confirmed) {
             await deleteTripAPI(id);
@@ -179,7 +179,7 @@ function App() {
 
                 ))}
             </Grid>
-            <AllNotes trips={trips}/>
+
         </Container>
     )
 }

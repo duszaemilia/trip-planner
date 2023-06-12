@@ -23,6 +23,13 @@
       "startDate": "",
       "endDate": "2023-06-15",
       "id": 10
+    },
+    {
+      "title": "hello",
+      "description": "hi",
+      "startDate": "2023-06-06",
+      "endDate": "2023-06-13",
+      "id": 11
     }
   ],
   "notes": [
@@ -90,6 +97,16 @@
       "note": "fdfdsdsvg",
       "tripId": 8,
       "id": 13
+    },
+    {
+      "note": "first note",
+      "tripId": 11,
+      "id": 14
+    },
+    {
+      "note": "dfdsfd",
+      "tripId": 8,
+      "id": 15
     }
   ]
 }

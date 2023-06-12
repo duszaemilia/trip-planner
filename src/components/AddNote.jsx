@@ -15,6 +15,7 @@ function AddNote({tripId,setNoteId}) {
             }, "notes");
             setNote("");
             setNoteId(null);
+            alert("Note saved!");
         }
 
     }
@@ -32,6 +33,7 @@ function AddNote({tripId,setNoteId}) {
             />
             <Button onClick={handleAddNote} variant="contained">Confirm</Button>
             </Stack>
+
         </>
     );
 }
