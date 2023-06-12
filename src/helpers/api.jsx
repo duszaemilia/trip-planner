@@ -19,6 +19,8 @@ export  async function sendDataAPI(data,endpoint) {
 }
 
 export     async function deleteTripAPI(id){
-    const response = await fetch (`http://localhost:3000/trips/${id}`, {method:'DELETE'})
+    const response = await fetch (`http://localhost:3000/trips/${id}`, {
+        method:'DELETE'
+        })
     return response.json();
 }

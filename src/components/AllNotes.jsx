@@ -6,6 +6,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import {Container} from '@mui/material';
+import Button from "@mui/material/Button";
 
 export default function AllNotes({trips}) {
     const [notes, setNotes] = useState([]);
@@ -38,6 +39,23 @@ export default function AllNotes({trips}) {
         getTrip();
     }, [tripId]);
 
+
+    const handleDeleteNote = async (noteId) => {
+        const confirmed = window.confirm("Are you sure you want to delete this note?");
+
+        if (confirmed) {
+            const response = await fetch(`http://localhost:3000/notes/${noteId}`, {
+                method: 'DELETE',
+
+            })
+            setNotes(notes.filter((note) => note.id !== noteId));
+            return response.json();
+
+
+
+        }
+    };
+
     return (
         <Container maxWidth="md">
             <form>
@@ -48,6 +66,11 @@ export default function AllNotes({trips}) {
                     {notes.map((note) => (
                         <ListItemButton key={note.id}>
                             <ListItemText primary={note.note}/>
+                            <Button
+                                variant="outlined"
+                                onClick={() => handleDeleteNote(note.id)}
+                            >
+                                Delete</Button>
                         </ListItemButton>
                     ))}
                 </List>
