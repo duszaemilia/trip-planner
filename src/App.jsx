@@ -1,34 +1,20 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {deleteTripAPI, getAllTrips, sendDataAPI} from "./helpers/api.jsx";
-import PropTypes from "prop-types";
-
 // import {TripDetail} from "./components/TripDetail.jsx";
 import TripDetails from "./components/TripDetails.jsx";
 import AllNotes from "./components/AllNotes.jsx";
-
-
-import {Container, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import {Container} from "@mui/material";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Unstable_Grid2';
-import List from '@mui/material/List';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-
-import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
 import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
 import {DatePicker} from '@mui/x-date-pickers/DatePicker';
-import {ExpandLess, ExpandMore} from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 
 
-TripDetails.propTypes = {
-    trip: PropTypes.any,
-    noteId: PropTypes.any,
-    setNoteId: PropTypes.any,
-    onClick: PropTypes.func,
-    onClick1: PropTypes.func
-};
+
 
 function App() {
 
@@ -97,7 +83,6 @@ function App() {
             setTrips(trips.filter((trip) => trip.id !== id));
         }
     }
-
 
     return (
         <>
@@ -176,13 +161,9 @@ function App() {
                             setNoteId={setNoteId}
                             onClick={() => setNoteId(trip.id)}
                             onClick1={handleDeleteTrip}
-
-
                         />
-
                     ))}
                 </Grid>
-
             </Container>
         </>
     )

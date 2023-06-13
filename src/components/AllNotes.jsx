@@ -2,7 +2,6 @@ import  {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import {Container} from '@mui/material';
@@ -10,7 +9,7 @@ import Button from "@mui/material/Button";
 import Stack from '@mui/material/Stack';
 
 
-export default function AllNotes({trips}) {
+export default function AllNotes() {
     const [notes, setNotes] = useState([]);
     const {tripId} = useParams();
     const [trip, setTrip] = useState(null);

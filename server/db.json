@@ -1,14 +1,6 @@
 {
   "trips": [
     {
-      "title": "",
-      "description": "vdvdvdsv  jfnf slfj jjlf",
-      "status": "open",
-      "startDate": "",
-      "endDate": "",
-      "id": 8
-    },
-    {
       "title": "Dubrownik ",
       "description": "one day visit",
       "status": "open",
@@ -56,39 +48,18 @@
       "id": 3
     },
     {
-      "note": "czy działa confirm?>>?",
-      "tripId": 8,
-      "id": 10
-    },
-    {
-      "note": "a czy teraz?",
-      "tripId": 8,
-      "id": 12
-    },
-    {
       "note": "first note",
       "tripId": 11,
       "id": 14
     },
     {
-      "note": "note note note",
-      "tripId": 8,
+      "note": "eeee",
+      "id": 15
+    },
+    {
+      "note": "dsdsvdvffdjjjj",
+      "tripId": 12,
       "id": 16
-    },
-    {
-      "note": "ddd",
-      "tripId": 8,
-      "id": 18
-    },
-    {
-      "note": "333",
-      "tripId": 8,
-      "id": 19
-    },
-    {
-      "note": "jjjjj",
-      "tripId": 8,
-      "id": 20
     }
   ]
 }

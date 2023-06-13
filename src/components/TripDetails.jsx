@@ -20,7 +20,7 @@ TripDetails.propTypes = {
     onClick1: PropTypes.func
 };
 
-export default function TripDetails(props) {
+export default function TripDetails({ trip, noteId, setNoteId, onClick, onClick1 }) {
 
     const [open, setOpen] = useState(true);
 
@@ -41,8 +41,8 @@ export default function TripDetails(props) {
                     <ListItemIcon>
                         <InboxIcon/>
                     </ListItemIcon>
-                    <ListItemText primary={`${props.trip.title} from ${props.trip.startDate} to ${props.trip.endDate}`}
-                                  secondary={props.trip.description}/>
+                    <ListItemText primary={`${trip.title} from ${trip.startDate} to ${trip.endDate}`}
+                                  secondary={trip.description}/>
                     {open ? <ExpandLess/> : <ExpandMore/>}
                 </ListItemButton>
 
@@ -52,17 +52,17 @@ export default function TripDetails(props) {
                             <ListItemIcon>
 
                                 <Stack spacing={4} gap={4} direction="row">
-                                    {props.noteId === props.trip.id ? (
+                                    {noteId === trip.id ? (
                                         <AddNote
-                                            setNoteId={props.setNoteId}
-                                            tripId={props.trip.id}/>) : (
-                                        <Button onClick={props.onClick} variant="outlined">Add note</Button>
+                                            setNoteId={setNoteId}
+                                            tripId={trip.id}/>) : (
+                                        <Button onClick={onClick} variant="outlined">Add note</Button>
                                     )}
 
-                                    <Link to={`/trip-card/${props.trip.id}/notes`}>
+                                    <Link to={`/trip-card/${trip.id}/notes`}>
                                         <Button variant="outlined">See all notes</Button>
                                     </Link>
-                                    <Button onClick={props.onClick1} data-id={props.trip.id}
+                                    <Button onClick={onClick1} data-id={trip.id}
                                             variant="outlined">Delete</Button>
 
                                 </Stack>

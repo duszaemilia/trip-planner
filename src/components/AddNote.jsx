@@ -1,9 +1,14 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import {sendDataAPI} from "../helpers/api.jsx";
 import Button from "@mui/material/Button";
 import Stack from '@mui/material/Stack';
 import TextField from "@mui/material/TextField";
+import PropTypes from "prop-types";
 
+AddNote.propTypes = {
+    tripId: PropTypes.any,
+    setNoteId: PropTypes.any,
+};
 function AddNote({tripId,setNoteId}) {
     const [note, setNote] = useState("");
 
@@ -17,7 +22,6 @@ function AddNote({tripId,setNoteId}) {
             setNoteId(null);
             alert("Note saved!");
         }
-
     }
 
     return (
