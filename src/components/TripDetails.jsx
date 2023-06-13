@@ -8,10 +8,17 @@ import {ExpandLess, ExpandMore} from "@mui/icons-material";
 import Grid from '@mui/material/Unstable_Grid2';
 import Collapse from '@mui/material/Collapse';
 import {Link} from "react-router-dom";
-import React, {useState} from "react";
+import {useState} from "react";
 
 import * as PropTypes from "prop-types";
 
+TripDetails.propTypes = {
+    trip: PropTypes.any,
+    noteId: PropTypes.any,
+    setNoteId:PropTypes.any,
+    onClick: PropTypes.func,
+    onClick1: PropTypes.func
+};
 
 export default function TripDetails(props) {
 

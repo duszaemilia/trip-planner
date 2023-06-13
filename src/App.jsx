@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {deleteTripAPI, getAllTrips, sendDataAPI} from "./helpers/api.jsx";
-// import * as PropTypes from "prop-types";
 import PropTypes from "prop-types";
 
 // import {TripDetail} from "./components/TripDetail.jsx";
@@ -26,6 +25,7 @@ import Typography from "@mui/material/Typography";
 TripDetails.propTypes = {
     trip: PropTypes.any,
     noteId: PropTypes.any,
+    setNoteId: PropTypes.any,
     onClick: PropTypes.func,
     onClick1: PropTypes.func
 };
@@ -139,28 +139,27 @@ function App() {
                             </Typography>
                         )}
 
-                        <div>
-
-                            <label htmlFor="startDate">Start Date</label>
-
-                            <input
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker
+                                label="Start Date"
                                 value={startDate}
-                                type="date"
-                                id="startDate"
-                                name="startDate"
-                                onChange={(event) => setStartDate(event.target.value)}
+                                onChange={(date) => setStartDate(date)}
+                                renderInput={(props) => (
+                                    <TextField {...props} fullWidth variant="outlined"/>
+                                )}
                             />
-                        </div>
-                        <div>
-                            <label htmlFor="endDate">End Date</label>
-                            <input
+                        </LocalizationProvider>
+
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker
+                                label="End Date"
                                 value={endDate}
-                                type="date"
-                                id="endDate"
-                                name="endDate"
-                                onChange={(event) => setEndDate(event.target.value)}
+                                onChange={(date) => setEndDate(date)}
+                                renderInput={(props) => (
+                                    <TextField {...props} fullWidth variant="outlined"/>
+                                )}
                             />
-                        </div>
+                        </LocalizationProvider>
                         <Button variant="contained" type="submit">Save trip</Button>
                     </Stack>
                 </form>
@@ -176,7 +175,10 @@ function App() {
                             noteId={noteId}
                             setNoteId={setNoteId}
                             onClick={() => setNoteId(trip.id)}
-                            onClick1={handleDeleteTrip}/>
+                            onClick1={handleDeleteTrip}
+
+
+                        />
 
                     ))}
                 </Grid>

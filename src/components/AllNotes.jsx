@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import  {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';

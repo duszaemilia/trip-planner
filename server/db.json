@@ -30,6 +30,13 @@
       "startDate": "2023-06-06",
       "endDate": "2023-06-13",
       "id": 11
+    },
+    {
+      "title": "rrrrrrrrrrrrr",
+      "description": "rrr",
+      "startDate": "",
+      "endDate": "",
+      "id": 12
     }
   ],
   "notes": [
@@ -77,6 +84,11 @@
       "note": "333",
       "tripId": 8,
       "id": 19
+    },
+    {
+      "note": "jjjjj",
+      "tripId": 8,
+      "id": 20
     }
   ]
 }
