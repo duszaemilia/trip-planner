@@ -100,87 +100,89 @@ function App() {
 
 
     return (
-        <Container maxWidth="md">
-            <h1>Trip Planner</h1>
-            <form onSubmit={handleSubmit}>
+        <>
+            <Container maxWidth="md">
+                <h1>Trip Planner</h1>
+                <form onSubmit={handleSubmit}>
 
 
-                <Stack spacing={2} direction="column">
-                    <TextField
-                        label="Trip title"
-                        variant="outlined"
-                        value={title}
-                        type="text"
-                        id="title"
-                        name="title"
-                        onChange={handleTitleChange}
-                        error={titleError}
-                    />
-                    {titleError && (
-                        <Typography variant="caption" color="error">
-                            Please enter a title.
-                        </Typography>
-                    )}
-
-                    <TextField
-                        label="Trip description"
-                        variant="outlined"
-                        value={description}
-                        id="desc"
-                        name="desc"
-                        onChange={handleDescriptionChange}
-                        error={descriptionError}
-                    />
-
-                    {descriptionError && (
-                        <Typography variant="caption" color="error">
-                            Please enter a description.
-                        </Typography>
-                    )}
-
-                    <div>
-
-                        <label htmlFor="startDate">Start Date</label>
-
-                        <input
-                            value={startDate}
-                            type="date"
-                            id="startDate"
-                            name="startDate"
-                            onChange={(event) => setStartDate(event.target.value)}
+                    <Stack spacing={2} direction="column">
+                        <TextField
+                            label="Trip title"
+                            variant="outlined"
+                            value={title}
+                            type="text"
+                            id="title"
+                            name="title"
+                            onChange={handleTitleChange}
+                            error={titleError}
                         />
-                    </div>
-                    <div>
-                        <label htmlFor="endDate">End Date</label>
-                        <input
-                            value={endDate}
-                            type="date"
-                            id="endDate"
-                            name="endDate"
-                            onChange={(event) => setEndDate(event.target.value)}
+                        {titleError && (
+                            <Typography variant="caption" color="error">
+                                Please enter a title.
+                            </Typography>
+                        )}
+
+                        <TextField
+                            label="Trip description"
+                            variant="outlined"
+                            value={description}
+                            id="desc"
+                            name="desc"
+                            onChange={handleDescriptionChange}
+                            error={descriptionError}
                         />
-                    </div>
-                    <Button variant="contained" type="submit">Save trip</Button>
-                </Stack>
-            </form>
+
+                        {descriptionError && (
+                            <Typography variant="caption" color="error">
+                                Please enter a description.
+                            </Typography>
+                        )}
+
+                        <div>
+
+                            <label htmlFor="startDate">Start Date</label>
+
+                            <input
+                                value={startDate}
+                                type="date"
+                                id="startDate"
+                                name="startDate"
+                                onChange={(event) => setStartDate(event.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="endDate">End Date</label>
+                            <input
+                                value={endDate}
+                                type="date"
+                                id="endDate"
+                                name="endDate"
+                                onChange={(event) => setEndDate(event.target.value)}
+                            />
+                        </div>
+                        <Button variant="contained" type="submit">Save trip</Button>
+                    </Stack>
+                </form>
 
 
-            <Grid spacing={2} gap={2} style={{marginTop: '20px'}}>
+                <Grid spacing={2} gap={2} style={{marginTop: '20px'}}>
 
-                {trips.map((trip) => (
+                    {trips.map((trip) => (
 
-                    <TripDetails
-                        key={trip.id}
-                        trip={trip}
-                        noteId={noteId}
-                        setNoteId={setNoteId}
-                        onClick={() => setNoteId(trip.id)}
-                        onClick1={handleDeleteTrip}/>
+                        <TripDetails
+                            key={trip.id}
+                            trip={trip}
+                            noteId={noteId}
+                            setNoteId={setNoteId}
+                            onClick={() => setNoteId(trip.id)}
+                            onClick1={handleDeleteTrip}/>
 
-                ))}
-            </Grid>
+                    ))}
+                </Grid>
 
-        </Container>
+            </Container>
+        </>
     )
 }
 

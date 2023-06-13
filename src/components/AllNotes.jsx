@@ -66,6 +66,10 @@ export default function AllNotes({trips}) {
     };
 
     const handleSaveNote = async () => {
+        if (editedNote.trim() === "") {
+            return;
+        }
+
         const response = await fetch(`http://localhost:3000/notes/${editNoteId}`, {
             method: 'PATCH',
             headers: {
